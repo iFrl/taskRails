@@ -5,8 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-categories = Category.create([
-    {name: 'Vegetables', alias: 'Vegs'},
-    {name: 'Milk', alias: 'Milk'},
-    {name: 'Water', alias: 'Wtr'},
-    {name: 'Shoes', alias: 'Boots'}])
+require 'factory_girl'
+FactoryGirl.create_list(:category, 5)
+FactoryGirl.create_list(:item, 25, id_category: Category.first.id)
+FactoryGirl.create_list(:item, 25, id_category: Category.last.id)
+

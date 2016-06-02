@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  scope :api, constraints: {format: 'json' } do
-    resources :categories, :items, only: [:index, :show]
+  scope :api, module: :api, constraints: {format: 'json'}, only: [:index, :show] do
+    resources :categories, :items 
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
